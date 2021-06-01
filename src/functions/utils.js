@@ -66,7 +66,8 @@ const filterByValue = (string) => {
 };
 
 const render = (file, argsObject) => {
-    var tmp = HtmlService.createTemplateFromFile(file);
+    var tmp = HtmlService.createHtmlOutputFromFile(file);
+    tmp.addMetaTag('viewport', 'width=device-width, initial-scale=1');
     if (argsObject) {
         var keys = Object.keys(argsObject);
         keys.forEach(function(key) {
@@ -78,7 +79,8 @@ const render = (file, argsObject) => {
         .setTitle('- 🕵️‍♀️ Project List -')
         .setFaviconUrl(
             'https://raw.githubusercontent.com/ggafiled/googlesheet_appscript_project_list/master/img/favicon.ico'
-        );
+        )
+        .setSandboxMode(HtmlService.SandboxMode.IFRAME);
 };
 
 export { setDataToStore, getDataFromRange, isEmpty, filterByValue, filterByValueLike, render };

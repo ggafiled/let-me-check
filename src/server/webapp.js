@@ -7,9 +7,15 @@ Route.path = function (routeName, callback) {
   Route[routeName] = callback;
 };
 
-Route.path('project-list', () => {
-  return render('index', {
-    title: '- 🕵️‍♀️ Project List -',
+Route.path('profile', () => {
+  return render('profile', {
+    title: 'User Profile',
+  });
+});
+
+Route.path('register', () => {
+  return render('register', {
+    title: 'Register',
   });
 });
 
