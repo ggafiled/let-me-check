@@ -2,6 +2,8 @@ const {
     render
 } = require('../functions/utils');
 
+var { replyMessage, MESSAGE_TYPE } = require('../functions/LineBot');
+
 const Route = {};
 Route.path = function(routeName, callback) {
     Route[routeName] = callback;
@@ -27,7 +29,7 @@ const doPost = async (e) => {
     const messages = data.events[0].message.text;
     Logger.log(`[doPost()] messages: ${messages}`);
   
-    Logger.log(`[doPost()] fmCommandRegex.text : ${fmCommandRegex.test(messages.trim())}`);
+    replyMessage(data.events[0].replyToken, data.events[0].message.text, MESSAGE_TYPE.NORMAL);
 
     return ContentService.createTextOutput(
       JSON.stringify({
