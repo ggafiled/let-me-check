@@ -14,7 +14,7 @@ const isEmpty = (text) => {
     return text === '' ? true : false;
 };
 
-const filterByValueLike = async(string) => {
+const filterByValueLike = async (string) => {
     Logger.log('[filterByValueLike()]: starting function.');
     const Progress = Tamotsu.Table.define({
         sheetName: 'Progress',
@@ -70,11 +70,12 @@ const render = (file, argsObject) => {
     tmp.addMetaTag('viewport', 'width=device-width, initial-scale=1');
     if (argsObject) {
         var keys = Object.keys(argsObject);
-        keys.forEach(function(key) {
+        keys.forEach(function (key) {
             tmp[key] = argsObject[key];
         });
     }
     return tmp
+        .asTemplate()
         .evaluate()
         .setTitle('- 🕵️‍♀️ Project List -')
         .setFaviconUrl(
@@ -83,4 +84,11 @@ const render = (file, argsObject) => {
         .setSandboxMode(HtmlService.SandboxMode.IFRAME);
 };
 
-export { setDataToStore, getDataFromRange, isEmpty, filterByValue, filterByValueLike, render };
+export {
+    setDataToStore,
+    getDataFromRange,
+    isEmpty,
+    filterByValue,
+    filterByValueLike,
+    render
+};
