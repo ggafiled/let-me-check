@@ -1,10 +1,10 @@
 # Google Apps Script Development Project Structure💯
 
-# Google sheet with app script
+# Let Me Check (ระบบแชทบอท)
 
 [![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger) |
 
-Foobar is a Python library for dealing with word pluralization.
+ระบบแชทบอทที่จะช่วยให้คุณเช็คอินเข้าพื้นที่อัตโนมัติ บนแพลตฟอร์ม ไทยชนะ ได้อย่างง่ายดาย.
 
 ## Pre-process
 
@@ -55,16 +55,6 @@ https://script.google.com/home/usersettings
 npm install
 npm run deploy:prod
 
-```
-
-## Usage
-
-```python
-import foobar
-
-foobar.pluralize('word') # returns 'words'
-foobar.pluralize('goose') # returns 'geese'
-foobar.singularize('phenomena') # returns 'phenomenon'
 ```
 
 # Copyright 🏛
