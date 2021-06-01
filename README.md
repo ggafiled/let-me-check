@@ -23,7 +23,7 @@
 ทำการโหลดไฟล์โค้ดนี้ลงเครื่อง ด้วยคำสั่ง
 
 ````node
-git clone https://github.com/ggafiled/googlesheet_appscript_project_list.git
+git clone https://github.com/ggafiled/let-me-check.git
 
 // จากนั้นเข้าไปยังโฟลเดอร์โปรเจ็ค
 cd googlesheet_appscript_project_list
