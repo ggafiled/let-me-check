@@ -1,4 +1,8 @@
-const { getDataFromRange, setDataToStore, isEmpty } = require('./utils.js');
+const {
+    getDataFromRange,
+    setDataToStore,
+    isEmpty
+} = require('./utils.js');
 
 const MESSAGE_TYPE = {
     NORMAL: 'Normal',
@@ -20,11 +24,20 @@ async function getUserProfile(userId, groupId) {
                         .toString(),
                 },
             };
+            let response = null;
+            if (groupId) {
+                response = await UrlFetchApp.fetch(
+                    `https://api.line.me/v2/bot/group/${groupId}/member/${userId}`,
+                    options
+                );
+            } else {
+                response = await UrlFetchApp.fetch(
+                    `https://api.line.me/v2/bot/profile/${userId}`,
+                    options
+                );
+            }
 
-            let response = await UrlFetchApp.fetch(
-                `https://api.line.me/v2/bot/group/${groupId}/member/${userId}`,
-                options
-            );
+
             return JSON.parse(response);
         } else {
             Logger.log('[getUserProfile()] : LINE_CHANEL_ACCESS_TOKEN empty.');
@@ -147,4 +160,9 @@ function quickReplyMessage(title, items) {
     return quickStructure;
 }
 
-export { sendLineNotify, replyMessage, MESSAGE_TYPE, getUserProfile };
+export {
+    sendLineNotify,
+    replyMessage,
+    MESSAGE_TYPE,
+    getUserProfile
+};
